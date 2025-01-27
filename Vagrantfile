@@ -1,0 +1,20 @@
+
+# Vagrant.configure("2") do |config|
+
+#   config.vm.box = "centos/7"
+  
+# end
+
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define "ansible-controller" do |controller|
+    controller.vm.hostname = "controller"
+    controller.vm.box = "centos/7"
+    controller.vm.provision "shell", inline: <<-SHELL
+      sudo yum install epel-release -y
+      sudo yum install ansible -y
+    SHELL
+  end
+
+end
