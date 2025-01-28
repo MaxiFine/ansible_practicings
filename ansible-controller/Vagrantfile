@@ -51,27 +51,48 @@
 
 # SWITCHING TO UBUNTU OS
 
-Vagrant.configure("2") do |config|
+# Vagrant.configure("2") do |config|
   
-  # VirtualBox provider configurations
+#   # VirtualBox provider configurations
+#   config.vm.provider "virtualbox" do |vb|
+#     vb.gui = true # Display the VirtualBox GUI when booting the machine
+#     vb.memory = "2048" # Set memory for the VM
+#     vb.cpus = "2" # Set the number of CPUs
+#   end
+
+#   # Define the VM
+#   config.vm.define "UbuntuVM" do |subconfig|
+#     subconfig.vm.box = "ubuntu/focal64" # Use Ubuntu 20.04 (Focal Fossa) box
+#     subconfig.vm.hostname = "UbuntuVM" # Set hostname
+
+#     # Configure a public network
+#     subconfig.vm.network "public_network"
+
+#     # Provision the VM with required packages
+#     subconfig.vm.provision "shell", inline: <<-SHELL
+#       sudo apt-get update
+#       sudo apt-get install -y ansible python3
+#     SHELL
+#   end
+# end
+
+
+# NEW VM FIX
+Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = true # Display the VirtualBox GUI when booting the machine
-    vb.memory = "2048" # Set memory for the VM
-    vb.cpus = "2" # Set the number of CPUs
+    vb.memory = "2048"
+    vb.cpus = 2
   end
 
-  # Define the VM
-  config.vm.define "UbuntuVM" do |subconfig|
-    subconfig.vm.box = "ubuntu/focal64" # Use Ubuntu 20.04 (Focal Fossa) box
-    subconfig.vm.hostname = "UbuntuVM" # Set hostname
+  config.vm.define "controller" do |controller|
+    controller.vm.box = "ubuntu/focal64"
+    controller.vm.hostname = "controller"
+    controller.vm.network "public_network", ip: "172.23.250.46"
+    controller.vm.ssh.insert_key = false
 
-    # Configure a public network
-    subconfig.vm.network "public_network"
-
-    # Provision the VM with required packages
-    subconfig.vm.provision "shell", inline: <<-SHELL
+    controller.vm.provision "shell", inline: <<-SHELL
       sudo apt-get update
-      sudo apt-get install -y ansible python3
+      sudo apt-get install -y python3 ansible
     SHELL
   end
 end
