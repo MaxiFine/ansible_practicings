@@ -3,4 +3,3 @@ ansible-host/.vagrant/
 
 ansible-controller/.vagrant/*
 ansible-host/.vagrant/*
-./.vagrant/
