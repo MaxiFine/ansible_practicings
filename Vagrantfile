@@ -16,5 +16,4 @@ Vagrant.configure("2") do |config|
       sudo yum install ansible -y
     SHELL
   end
-
 end
