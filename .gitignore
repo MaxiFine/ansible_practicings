@@ -1,1 +1,2 @@
-.vagrant/*
+ansible-controller/.vagrant/*
+ansible-hosts/.vagrant/*
