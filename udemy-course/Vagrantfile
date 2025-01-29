@@ -1,0 +1,19 @@
+Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+    vb.cpus = 2
+    vb.gui = true
+  end
+
+  config.vm.define "controller" do |controller|
+    controller.vm.box = "ubuntu/focal64"
+    controller.vm.hostname = "controller"
+    # controller.vm.network "public_network", ip: "172.23.250.46"
+    controller.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
+
+    controller.vm.provision "shell", inline: <<-SHELL
+      sudo apt-get update
+      sudo apt-get install -y python3 ansible
+    SHELL
+  end
+end
