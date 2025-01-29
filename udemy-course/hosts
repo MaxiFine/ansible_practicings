@@ -1,2 +1,4 @@
-[defaults]
-inventory = hosts
+[all]
+# vagrant@10.0.2.15
+vagrant@10.0.2.15
+ubuntu@ec2-13-40-47-44.eu-west-2.compute.amazonaws.com
