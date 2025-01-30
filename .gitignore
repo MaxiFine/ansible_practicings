@@ -5,3 +5,6 @@ ansible-controller/.vagrant/*
 ansible-host/.vagrant/*
 ansible-project/.vagrant/*
 udemy-course/.vagrant/*
+project-1/.vagrant/*
+project-1/ansi-env/*
+project-1/ansi-env/
