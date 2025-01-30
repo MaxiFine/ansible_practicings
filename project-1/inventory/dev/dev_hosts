@@ -1,0 +1,19 @@
+[all]
+ubuntu@ec2-13-40-47-44.eu-west-2.compute.amazonaws.com
+ubuntu@3.252.88.203
+# ubuntu@13.40.47.44
+
+
+# DEMO PURPOSES FOR INVENTORY FILE WITH GROUPS
+# [web_app]
+# ubuntu@3.252.88.203
+
+# [backend]
+# ubuntu@3.252.88.203
+
+# [db_app]
+# ubuntu@3.252.88.203
+
+# to execute the playbook on the web_app group example
+# ansible backend -m ping
+# ansible backend:web_app -m ping # two groups together
