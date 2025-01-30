@@ -1,0 +1,1 @@
+ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping  # disabling key checking
