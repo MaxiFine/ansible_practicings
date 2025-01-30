@@ -22,3 +22,16 @@ ansible backend -m copy -a "src=/mnt/c/Users/MaxwellAdomako/ansible/project-1/no
 
 # COPYING SOME CONTENT IF REQUIRED
 ansible backend -m copy -a "content='THIS IS THE TEST CONTENT USING ANSIBLE' dest=/tmp/tmp.txt"
+
+
+# MANAGING FILES/DIRS ON ANSIBLE Clients
+ansible backend -m file -a "dest=/tmp/temp_test state=touch"
+DELETING THE CREATED FILES
+ansible backend -m file -a "dest=/tmp/temp_test state=absent"
+# Execute WITH permission
+ansible backend -m file -a "dest=/tmp/temp_test.py state=touch mode=0775"
+
+Creating a Directory
+ansible backend -m file -a "dest=/tmp/temp/max_test state=directory"
+ansible backend -m file -a "dest=/tmp/temp/max_test state=absent"
+
