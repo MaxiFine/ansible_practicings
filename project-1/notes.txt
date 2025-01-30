@@ -1,1 +1,13 @@
 ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping  # disabling key checking
+
+# Executing commands on connected host together
+Syntax -
+ansible [group] -m shell -a [command]
+ansible dev_hosts -m shell -a "free -m"
+
+ansible all -m shell -a "apt list --installed"
+
+ansible-doc -l | wc -l {coount the number of mudules}
+ansible-doc -l >> ansible_modules.txt
+
+cat ansible_modules.txt | grep aws
