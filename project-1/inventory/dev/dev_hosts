@@ -1,4 +1,4 @@
-[all]
+[backend]
 ubuntu@ec2-13-40-47-44.eu-west-2.compute.amazonaws.com
 ubuntu@3.252.88.203
 # ubuntu@13.40.47.44
