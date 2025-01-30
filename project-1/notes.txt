@@ -18,3 +18,7 @@ User can copy the Files on Ansible Clients from Ansible Controller.
 ansible [group] -m copy -a [src=sorce_path dest=destination_path]
 
 ansible backend -m copy -a "src=/mnt/c/Users/MaxwellAdomako/ansible/project-1/notes.txt dest=/tmp"
+
+
+# COPYING SOME CONTENT IF REQUIRED
+ansible backend -m copy -a "content='THIS IS THE TEST CONTENT USING ANSIBLE' dest=/tmp/tmp.txt"
