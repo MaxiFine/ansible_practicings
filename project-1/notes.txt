@@ -11,3 +11,10 @@ ansible-doc -l | wc -l {coount the number of mudules}
 ansible-doc -l >> ansible_modules.txt
 
 cat ansible_modules.txt | grep aws
+
+#
+User can copy the Files on Ansible Clients from Ansible Controller.
+➢ Syntax -
+ansible [group] -m copy -a [src=sorce_path dest=destination_path]
+
+ansible backend -m copy -a "src=/mnt/c/Users/MaxwellAdomako/ansible/project-1/notes.txt dest=/tmp"
