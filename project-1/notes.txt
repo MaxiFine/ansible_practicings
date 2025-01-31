@@ -66,3 +66,6 @@ create yml file and add the aws plugin
 
 enter command
 ansible-inventory -i demo_aws_ec2.yml --graph
+ansible-inventory -i demo_aws_ec2.yml --list
+
+ansible backend -i demo_aws_ec2.yml -u ubuntu -m ping
