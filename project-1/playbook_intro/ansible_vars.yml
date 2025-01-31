@@ -7,27 +7,21 @@
   become_user: root
 
   vars: 
-    test: hello, this is a test
+    test: "hello, this is a test"
+    my_name: "Maxwell Adomako"
+    my_age: 25
+    my_height: 5.8
+    gender: "male"
 
   tasks:
     - name: Reading Ansible Playbook Variables
       debug:
         var: test
+    - name: Reading Ansible Playbook Variables
+      debug:    
+        msg: >
+          - My Name is: {{ my_name }}
+          - My Age is: {{ my_age }}
+          - My Height is: {{ my_height }}
+          - I am a: {{ gender }}
 
-  # tasks:
-  #   - name: Print a message checking Connection via ping
-  #     apt:
-  #       name: iputils-ping
-  #       state: present    
-  #   - name: Check Connection via ping
-  #     ping: 
-  #   - name: Check Nginx service status
-  #     service: 
-  #       name: nginx
-  #       state: started
-  #       enabled: yes
-  #     register: nginx_status
-
-  #   - name: Print Nginx service status
-  #     debug:
-  #       var: nginx_status
