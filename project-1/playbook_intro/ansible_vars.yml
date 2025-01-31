@@ -1,0 +1,33 @@
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: Introduction Ansible Playbook
+  hosts: backend
+  remote_user: ubuntu
+  # hosts: backend
+  become: 'yes'
+  become_user: root
+
+  vars: 
+    test: hello, this is a test
+
+  tasks:
+    - name: Reading Ansible Playbook Variables
+      debug:
+        var: test
+
+  # tasks:
+  #   - name: Print a message checking Connection via ping
+  #     apt:
+  #       name: iputils-ping
+  #       state: present    
+  #   - name: Check Connection via ping
+  #     ping: 
+  #   - name: Check Nginx service status
+  #     service: 
+  #       name: nginx
+  #       state: started
+  #       enabled: yes
+  #     register: nginx_status
+
+  #   - name: Print Nginx service status
+  #     debug:
+  #       var: nginx_status
