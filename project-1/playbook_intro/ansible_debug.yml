@@ -1,0 +1,36 @@
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: Introduction Ansible Playbook
+  hosts: backend
+  remote_user: ubuntu
+  # hosts: backend
+  become: 'yes'
+  become_user: root
+
+  tasks:
+    - name: Print a message IPUTILS
+      apt:
+        name: iputils-ping
+        state: present    
+
+    - name: Check Connection via ping
+      ping: 
+    
+    - name: Check Nginx service status
+      service: 
+        name: nginx
+        state: started
+        enabled: yes
+      # register: nginx_status
+
+    - name: Print Variables in Message
+      debug:
+        msg: 
+        - "HOST IP 1: {{ inventory_hostname }}"
+        - "HOST IP 1: {{ inventory_hostname }}"
+        - "HOST IP 1: {{ hostvars['backend-host-1']['ansible_host'] }}"
+
+    - name: Print HOST NAME
+      debug:
+        msg:
+        - "HOST NAME: {{ ansible_hostname }}"
+ 
