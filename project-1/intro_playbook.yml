@@ -1,8 +1,10 @@
 #!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
 - name: Introduction Ansible Playbook
   hosts: backend
+  remote_user: ubuntu
+  # hosts: backend
   become: 'yes'
-
+  become_user: root
 
   tasks:
     - name: Print a message checking Connection via ping
