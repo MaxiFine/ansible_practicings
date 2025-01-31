@@ -13,3 +13,14 @@
         state: present    
     - name: Check Connection via ping
       ping: 
+    
+    - name: Check Nginx service status
+      service: 
+        name: nginx
+        state: started
+        enabled: yes
+      register: nginx_status
+
+    - name: Print Nginx service status
+      debug:
+        var: nginx_status
