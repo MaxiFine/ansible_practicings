@@ -47,3 +47,25 @@ ansible backend -m apt -a "name=nginx state=present" -b
 
 SETUP MODULE
 ansible backend -m setup -a "filter=ansible_lsb"
+
+WORKING WITH DYNAMIC inventory[types=static::dynamic*]
+An inventory is a collection of host
+
+DYNAMIC inventory is dynamically generating the hosts ips
+after adding to cfg file
+# DYNAMIC CONFIGS
+[inventory]
+enable_plugins = host_list, script, auto, yaml, ini, toml, redis, zookeeper, host_list, yaml, ini, toml, redis, zookeeper
+
+sudo pip3 install boto3
+
+configure aws Credentials
+export the Credentials
+
+create yml file and add the aws plugin
+
+enter command
+ansible-inventory -i demo_aws_ec2.yml --graph
+ansible-inventory -i demo_aws_ec2.yml --list
+
+ansible backend -i demo_aws_ec2.yml -u ubuntu -m ping

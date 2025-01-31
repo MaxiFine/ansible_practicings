@@ -1,0 +1,13 @@
+
+- name: Introduction Ansible Playbook
+  hosts: backend
+  become: 'yes'
+
+
+  tasks:
+    - name: Print a message checking Connection via ping
+      apt:
+        name: iputils-ping
+        state: present    
+    - name: Check Connection via ping
+      ping: 
