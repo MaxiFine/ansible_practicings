@@ -69,3 +69,7 @@ ansible-inventory -i demo_aws_ec2.yml --graph
 ansible-inventory -i demo_aws_ec2.yml --list
 
 ansible backend -i demo_aws_ec2.yml -u ubuntu -m ping
+
+
+Dir warnings command
+chmod -R o-w /mnt/c/Users/MaxwellAdomako/ansible/project-1

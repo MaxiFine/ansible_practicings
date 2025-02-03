@@ -1,4 +1,7 @@
 #!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+# This is a simple playbook to check connection to the backend server
+# The playbook will install the iputils-ping package and then check connection to the backend server
+# The playbook will be run on the control node
 - name: Introduction Ansible Playbook
   hosts: backend
   remote_user: ubuntu

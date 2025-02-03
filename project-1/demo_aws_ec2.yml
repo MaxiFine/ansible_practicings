@@ -7,7 +7,7 @@
 #   - eu-west-1
 
 
-# NEW FIX
+# NEW FIX FOR THE DYNAMIC INVENTORY OF AWS EC2 INSTANCES
 all:
   children:
     backend:
