@@ -1,0 +1,41 @@
+##!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+
+
+# - name: Install Web Server
+#   apt:
+#     name: nginx
+#     state: present
+#     update_cache: yes
+
+# - name: Start Web Server
+#   service:
+#     name: nginx
+#     state: started
+#     enabled: yes
+
+
+ # NEW FIX
+---
+- name: Install and Start Nginx Web Server
+  hosts: backend
+  become: yes  # Runs as sudo
+
+  tasks:
+    - name: Install Web Server
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start Web Server
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+        
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
