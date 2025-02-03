@@ -33,4 +33,9 @@
       debug:
         msg:
         - "HOST NAME: {{ ansible_hostname }}"
+
+    - name: Installing Docker
+      apt:
+        name: docker.io
+        state: present
  
