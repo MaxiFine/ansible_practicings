@@ -1,0 +1,7 @@
+- name: Configure Web Server using Role
+  hosts: webservers
+  become: yes
+  roles:
+    - webservers
+  # tasks:
+  #   - include_tasks: webservers/tasks/main.yml

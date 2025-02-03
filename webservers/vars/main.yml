@@ -1,0 +1,4 @@
+---
+# vars file for webservers
+package_name: nginx
+service_name: nginx

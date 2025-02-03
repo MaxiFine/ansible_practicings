@@ -1,0 +1,36 @@
+---
+# # tasks file for webservers
+# - name: Install Web Server
+#   apt:
+#     name: "{{ package_name }}"
+#     state: present
+#     update_cache: yes
+
+# - name: Start Web Server
+#   service:
+#     name: "{{ service_name }}"
+#     state: started
+#     enabled: yes
+
+
+# EXTENDING WITH HANDLERS
+- name: Install Web Server
+  apt:
+    name: "{{ package_name }}"
+    state: present
+    update_cache: yes
+
+- name: Start Web Server
+  service:
+    name: "{{ service_name }}"
+    state: started
+    enabled: yes
+  
+- name: Ping Servers
+  ping:
+
+- name: Deploy custom Nginx config to restart when changes detected
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: Restart Nginx

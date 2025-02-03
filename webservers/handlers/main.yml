@@ -1,0 +1,6 @@
+---
+# handlers file for webservers [torestart nginx if configs changes]
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
