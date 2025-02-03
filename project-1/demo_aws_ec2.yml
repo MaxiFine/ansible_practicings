@@ -7,7 +7,7 @@
 #   - eu-west-1
 
 
-# NEW FIX
+# NEW FIX FOR THE DYNAMIC INVENTORY OF AWS EC2 INSTANCES
 all:
   children:
     backend:
@@ -18,5 +18,10 @@ all:
           ansible_user: ubuntu
         backend-host-2:
           # ansible_host: ec2-52-211-186-195.eu-west-1.compute.amazonaws.com
-          ansible_host: 52.211.186.195
+          ansible_host: 54.194.140.18
+          ansible_user: ubuntu
+
+        backend-host-3:
+          # ansible_host: ec2-52-211-186-195.eu-west-1.compute.amazonaws.com
+          ansible_host: ec2-35-90-91-115.us-west-2.compute.amazonaws.com
           ansible_user: ubuntu
