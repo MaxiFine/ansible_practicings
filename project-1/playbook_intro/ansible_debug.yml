@@ -20,7 +20,7 @@
         name: nginx
         state: started
         enabled: yes
-      # register: nginx_status
+      register: nginx_status
 
     - name: Print Variables in Message
       debug:

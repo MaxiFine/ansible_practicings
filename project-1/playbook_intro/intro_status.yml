@@ -11,8 +11,8 @@
       apt:
         name: iputils-ping
         state: present    
-    - name: Check Connection via ping
-      ping: 
+    # - name: Check Connection via ping
+    #   ping: 
     
     - name: Check Nginx service status
       service: 
@@ -24,3 +24,10 @@
     - name: Print Nginx service status
       debug:
         var: nginx_status
+
+    - name: Check nginx Status
+      shell: systemctl status nginx
+
+    - name: Check Docker installation
+      shell: docker --version
+      register: docker_version
