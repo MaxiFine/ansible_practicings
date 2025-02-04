@@ -36,3 +36,15 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+# COMMANDS TO EXECUTE THIS PROJECTS IN PLAYBOOK STRUCTURE
+
+## EXECUTE THE PLAYBOOK
+```ansible-playbook -i inventory.ini webservers.yml ```
+
+
+## PLAY AROUND WITH SYSTEM COMMANDS
+```ansible webservers -i inventory.ini -a "systemctl status nginx" -b```
+
+## PING TARGETS
+```ansible webservers -i inventory.ini -m ping```
