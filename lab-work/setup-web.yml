@@ -22,6 +22,6 @@
       shell: systemctl status nginx
       register: nginx_status
 
-    - name: Print Nginx status
-      debug:
-        var: nginx_status.stdout
+    # - name: Print Nginx status
+    #   debug:
+    #     var: nginx_status.stdout
