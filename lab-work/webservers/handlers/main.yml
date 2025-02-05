@@ -3,6 +3,6 @@
 - name: Restart Nginx
   service:
     name: nginx
-    state: restarted
-  notify: Restart Nginx
+    state: if nginx_status.stdout.find('active (running)') == -1 else 'restarted'
+  
 
