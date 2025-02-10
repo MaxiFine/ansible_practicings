@@ -1,0 +1,12 @@
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: Introduction Ansible Register and Set_Facts
+  hosts: backend
+  remote_user: ubuntu
+  # hosts: backend
+  become: 'yes'
+  become_user: root
+
+# Register stores values passed in variables
+  tasks:
+    - name: Retrieve Installed Shell version
+      shell: "bash --version"
