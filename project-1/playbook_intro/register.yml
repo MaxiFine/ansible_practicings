@@ -10,3 +10,21 @@
   tasks:
     - name: Retrieve Installed Shell version
       shell: "bash --version"
+      # Adding register to store the output of the command
+      # register: shell_version
+      register: bash_ver
+
+  # using set_facts to store the value of the version
+    - set_Facts:
+        bash_version: "{{ bash_ver.stdout_lines[0].split()[3] }}"
+        # var: bash_version="{{ shell_version.stdout_lines[0].split()[3] }}"
+        my_value: Bash Version
+
+    - name: Retrieve bash Version
+      debug:
+        # var: bash_ver 
+        # var: bash_ver.stdout_lines
+        # var: bash_ver.stdout_lines[0]  # only the version line
+        # var: bash_ver.stdout_lines[0].split()[3]  # grabbing the split values
+        # USING SET_FACTS
+        var: bash_version
