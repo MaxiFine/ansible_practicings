@@ -1,0 +1,63 @@
+# #!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+# - name: Introduction Ansible Register and Set_Facts
+#   hosts: backend
+#   remote_user: ubuntu
+#   # hosts: backend
+#   become: 'yes'
+#   become_user: root
+
+# # Register stores values passed in variables
+#   tasks:
+#     - name: Retrieve Installed Shell version
+#       shell: "bash --version"
+#       # Adding register to store the output of the command
+#       # register: shell_version
+#       register: bash_ver
+
+#   # using set_facts to store the value of the version
+#     - set_facts:
+#         bash_version: "{{ bash_ver.stdout_lines[0].split()[3] }}"
+#         # var: bash_version="{{ shell_version.stdout_lines[0].split()[3] }}"
+#         my_value: Bash Version
+
+#     - debug:
+#         var: bash_version
+
+#     # using set_facts to store the value of the version
+#     # - name: Set Bash version fact
+#     #   set_facts:
+#     #     bash_version: "{{ bash_ver.stdout_lines[0].split()[3] }}"
+#     #     my_value: "Bash Version"
+
+
+#     # - name: Retrieve bash Version
+#     #   debug:
+#     #     # var: bash_ver 
+#     #     # var: bash_ver.stdout_lines
+#     #     # var: bash_ver.stdout_lines[0]  # only the version line
+#     #     # var: bash_ver.stdout_lines[0].split()[3]  # grabbing the split values
+#     #     # USING SET_FACTS
+#     #     var: bash_version
+
+
+# NEW FIX FROM GPT
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: Introduction Ansible Register and set_facts
+  hosts: backend
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Retrieve Installed Shell version
+      shell: "bash --version"
+      register: bash_ver
+
+    # - name: Set Bash version fact
+    - set_facts:
+        bash_version: "{{ bash_ver.stdout_lines[0].split()[3] }}"
+        my_value: "Bash Version"
+
+    - name: Debug Bash Version fact
+      debug:
+        var: bash_version

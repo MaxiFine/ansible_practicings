@@ -1,0 +1,50 @@
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: Introduction Ansible Playbook
+  hosts: backend
+  remote_user: ubuntu
+  # hosts: backend
+  become: 'yes'
+  become_user: root
+
+  vars: 
+    test: "hello, this is a test"
+    my_name: "Maxwell Adomako"
+    my_age: 25
+    my_height: 5.8
+    gender: "male"
+    packages: ['wget', 'unzip', 'curl']
+    cities: 
+    - 'kumasi'
+    - 'accra'
+    - 'tamale'
+    - 'sunyani'
+    web_server: {'Linux': 'httpd', 'Unix': 'apache', 'Windows': 'IIS'}
+
+  tasks:
+    - name: Reading Ansible Playbook Variables
+      debug:
+        var: test
+    - name: Reading Ansible Playbook Variables
+      debug:    
+        msg: >
+          - My Name is: {{ my_name }}
+          - My Age is: {{ my_age }}
+          - My Height is: {{ my_height }}
+          - I am a: {{ gender }}
+
+    - name: Data collection in ansible type 1
+      debug:
+        msg: "The packages to be installed are: {{ packages }}" 
+
+    - name: Data collection in ansible type 
+      debug:
+        var: packages, cities
+
+    - name: Data collection CITYIES 
+      debug:
+        var: cities
+
+
+    - name: Data collection CITYIES IN MAPS
+      debug:
+        var: web_server
