@@ -1,0 +1,17 @@
+#!/mnt/c/Users/MaxwellAdomako/ansible/project-1/ansi-env/bin/ansible-playbook
+- name: This is to Display ansible Arithmetic Operations on variables
+  hosts: localhost   # it means this ansible will execute in the local machine
+  remote_user: ubuntu   
+  # become: yes 
+  # become_user: root
+  gather_facts: no
+
+  vars: 
+    num1: 10
+    num2: 20
+  
+  tasks: 
+    - name: OPeration to add two numbers
+      debug: 
+        msg: "The sum of {{ num1 }} and {{ num2 }} is {{ num1 + num2 }}"
+        
